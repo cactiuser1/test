@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: system-harbor
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: system-harbor
+  source:
+    repoURL: 'https://github.com/BigKAA/youtube'
+    path: harbor/bitnami/app
+    targetRevision: master
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: system-harbor
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

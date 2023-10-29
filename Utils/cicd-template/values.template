@@ -1,0 +1,10 @@
+description:
+{{ .Description | indent 2 }}
+image: {{ .Image }}
+fullnameOverride: {{ .FullnameOverride }}
+resources:
+{{ .Resources | indent 2 }}
+readinessProbe:
+{{ .ReadinessProbe | indent 2 }}
+livenessProbe:
+{{ .LivenessProbe | indent 2 }}

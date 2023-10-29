@@ -1,0 +1,15 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nexus-data
+  namespace: nexus
+  annotations:
+    volume.beta.kubernetes.io/storageClassName: "managed-nfs-storage"
+spec:
+  storageClassName: managed-nfs-storage
+  accessModes:
+    - ReadWriteMany
+  #storageClassName: managed-nfs-storage
+  resources:
+    requests:
+      storage: 10Mi

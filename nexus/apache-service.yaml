@@ -1,0 +1,16 @@
+#Expose the apache web server as a Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: apache
+  labels:
+    name: apache
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 80
+    targetPort: http
+  selector:
+    app: apache
+ 
